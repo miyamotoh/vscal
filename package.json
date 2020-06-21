@@ -10,7 +10,7 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:extension.calendar"
+		"*"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
@@ -19,7 +19,44 @@
 				"command": "extension.calendar",
 				"title": "Calendar"
 			}
-		]
+		],
+		"keybindings": [
+			{
+				"command": "extension.calendar",
+				"key": "shift+ctrl+C"
+			}
+		],
+		"configuration": {
+			"type": "object",
+			"title": "Calendar",
+			"properties": {
+				"calendar.numMonthsToShowBefore": {
+					"type": "integer",
+					"default": 1,
+					"markdownDescription": "Number of months before the current month to show"
+				},
+				"calendar.numMonthsToShowAfter": {
+					"type": "integer",
+					"default": 10,
+					"markdownDescription": "Number of months after the current month to show"
+				},
+				"calendar.numMonthsPerRow": {
+					"type": "integer",
+					"default": 4,
+					"markdownDescription": "Number of months to show per row"
+				},
+				"calendar.extraHorizontalSpace": {
+					"type": "integer",
+					"default": 1,
+					"markdownDescription": "Spacing between columns"
+				},
+				"calendar.extraVerticalSpace": {
+					"type": "integer",
+					"default": 1,
+					"markdownDescription": "Spacing between rows"
+				}
+			}
+		}
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
@@ -34,12 +71,12 @@
 		"@types/mocha": "^7.0.1",
 		"@types/node": "^12.11.7",
 		"@types/vscode": "^1.43.0",
-		"eslint": "^6.8.0",
-		"@typescript-eslint/parser": "^2.18.0",
 		"@typescript-eslint/eslint-plugin": "^2.18.0",
+		"@typescript-eslint/parser": "^2.18.0",
+		"eslint": "^6.8.0",
 		"glob": "^7.1.6",
 		"mocha": "^7.0.1",
-		"typescript": "^3.7.5",
+		"typescript": "^3.9.5",
 		"vscode-test": "^1.3.0"
 	}
 }
